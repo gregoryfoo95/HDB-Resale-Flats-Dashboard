@@ -4,5 +4,4 @@ matplotlib
 streamlit
 yfinance
 seaborn
-base64
-pip install --upgrade pip
+
