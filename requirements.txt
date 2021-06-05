@@ -1,1 +1,7 @@
-python -m pip install streamlit
+numpy
+pandas
+matplotlib
+streamlit
+yfinance
+seaborn
+base64
