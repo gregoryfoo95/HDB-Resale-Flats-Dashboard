@@ -88,4 +88,5 @@ st.header('Stock Closing Price')
 for i in list(df_selected_sector.Symbol)[:num_company]:
     price_plot(i)
     df1 = yf.Ticker(i)
-    df1.recommendations
+    df2 = (df1.recommendations).sort_index(ascending=False)
+    df2
