@@ -14,6 +14,9 @@ This app retrieves the list of the **S&P 500** (from Wikipedia).
 
 st.sidebar.header('User Input Features')
 
+num_company = st.sidebar.slider('Number of Companies', 1, 10)
+
+
 # Web scraping of S&P 500 data
 #
 @st.cache
@@ -79,8 +82,6 @@ def price_plot(symbol):
   plt.xlabel('Date', fontweight='bold')
   plt.ylabel('Closing Price', fontweight='bold')
   return st.pyplot(fig)
-
-num_company = st.sidebar.slider('Number of Companies', 1, 10)
 
 
 st.header('Stock Closing Price')
