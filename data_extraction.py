@@ -19,3 +19,4 @@ def load_data():
     myDataFrame.sort_values(by = ['month'],ascending = False)
     return myDataFrame
 df = load_data()
+df = df.to_pickle("./dummy.pk1")
