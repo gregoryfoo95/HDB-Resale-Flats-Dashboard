@@ -10,6 +10,9 @@ from bs4 import BeautifulSoup
 import re
 from urllib.request import Request, urlopen
 
+st.set_page_config(layout="wide")
+image = Image.open('House.png')
+st.image(image, width = 500)
 st.title('HDB Resale Flats Dashboard')
 
 st.markdown("""
