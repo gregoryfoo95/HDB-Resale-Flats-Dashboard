@@ -4,7 +4,6 @@ pandas
 matplotlib
 seaborn
 numpy
-csv
 bs4
 re
 
