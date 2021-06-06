@@ -100,8 +100,8 @@ st.markdown(filedownload(df_selected_town), unsafe_allow_html=True)
 def type_plot(town):
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
-    y = df_selected_town['flat_type']
-    x = df_selected_town['town']
+    x = df_selected_town['flat_type']
+    y = df_selected_town['flat_type'].count
     ax.bar(x,y)
     return st.pyplot(fig)
 # Plot Price of Resale Price
