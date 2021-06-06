@@ -11,7 +11,7 @@ import re
 from urllib.request import Request, urlopen
 from PIL import Image
 import time
-
+from data_extraction import df
 
 
 st.set_page_config(layout="wide")
@@ -28,8 +28,8 @@ st.sidebar.header('User Input Features')
 # Web scraping of data.gov.sg data
 #
 @st.cache
-def load_data():
-    myDataFrame = pd.DataFrame()
+#def load_data():
+#    myDataFrame = pd.DataFrame()
     #Live Extraction from data.gov.sg
     #urldata = ['https://storage.data.gov.sg/resale-flat-prices/resources/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards-2021-06-04T02-52-32Z.csv']
     #, 'https://storage.data.gov.sg/resale-flat-prices/resources/resale-flat-prices-based-on-registration-date-from-jan-2015-to-dec-2016-2019-06-17T09-03-16Z.csv', \
@@ -44,11 +44,11 @@ def load_data():
     #    myDataFrame = myDataFrame.append(df)
     #    myDataFrame.sort_values(by = ['month'],ascending = False)
     #Saved in Github
-    df = pd.read_csv('resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv')
-    myDataFrame = myDataFrame.append(df)
-    myDataFrame.sort_values(by = ['month'],ascending = False)
-    return myDataFrame
-df = load_data()
+#    df = pd.read_csv('resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv')
+#    myDataFrame = myDataFrame.append(df)
+#    myDataFrame.sort_values(by = ['month'],ascending = False)
+#    return myDataFrame
+#df = load_data()
 
     
 
