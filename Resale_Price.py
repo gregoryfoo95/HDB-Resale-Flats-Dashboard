@@ -51,7 +51,7 @@ def load_data():
 df = load_data()
 
     
-town = df.groupby('town')
+#town = df.groupby('town')
 #subsector = df.groupby('GICS Sub-Industry')
 
 # Sidebar - Sector selection
@@ -95,6 +95,9 @@ st.markdown(filedownload(df_selected_town), unsafe_allow_html=True)
 #        proxy = None
 #    )
 
+
+# Plot Number of flat types for estates
+def type_plot(town):
 # Plot Price of Resale Price
 def price_plot(town):
 #  df = pd.DataFrame(data[symbol].Close)
@@ -109,7 +112,7 @@ def price_plot(town):
   plt.ylabel('Price', fontweight='bold')
   return st.pyplot(fig)
 
-num_town = st.sidebar.slider('Number of Companies', 1, 10)
+num_town = st.sidebar.slider('Number of Towns', 1, 10)
 
 
 #st.header('Stock Closing Price')
