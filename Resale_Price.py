@@ -9,6 +9,8 @@ import csv
 from bs4 import BeautifulSoup
 import re
 from urllib.request import Request, urlopen
+from PIL import Image
+
 
 st.set_page_config(layout="wide")
 image = Image.open('house.png')
