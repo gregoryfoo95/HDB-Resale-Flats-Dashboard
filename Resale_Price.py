@@ -11,7 +11,7 @@ import re
 from urllib.request import Request, urlopen
 from PIL import Image
 import time
-
+st.balloons()
 st.set_page_config(layout="wide")
 image = Image.open('house.png')
 st.image(image, width = 500)
