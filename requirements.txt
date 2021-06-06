@@ -1,5 +1,5 @@
 python -m pip install --upgrade pip
-import streamlit as st
+streamlit==0.75.0
 import pandas as pd
 import base64
 import matplotlib.pyplot as plt
