@@ -46,12 +46,8 @@ def load_data():
     df = pd.read_csv('resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv')
     myDataFrame = myDataFrame.append(df)
     myDataFrame.sort_values(by = ['month'],ascending = False)
+    bar = st.progress(0)
     return myDataFrame
-
-# Add a placeholder
-with st.spinner(text = 'In Progress'):
-    time.sleep(5)
-    st.success('Done'
 
     
 df = load_data()
