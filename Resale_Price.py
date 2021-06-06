@@ -49,7 +49,7 @@ def load_data():
     return myDataFrame
 
 # Add a placeholder
-with st.spinner(text = 'In Progress')
+with st.spinner(text = 'In Progress'):
     time.sleep(5)
     st.success('Done'
 
