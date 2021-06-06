@@ -58,7 +58,7 @@ df_selected_town = df[ (df['town'].isin(selected_town)) ]
 #df_selected_subsector = df[ (df['GICS Sub-Industry'].isin(selected_subindustry)) ]
 
 st.header('Display Resale Flats in Selected Towns')
-st.subheader('All filters are offed initially')
+st.write('All filters are offed initially')
 st.write('Data Dimensions: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
 st.dataframe(df_selected_town)
 #st.header('Display Companies in Selected Sub-Industry')
