@@ -45,9 +45,9 @@ def load_data():
     #Saved in Github
     df = pd.read_csv('resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv')
     myDataFrame = myDataFrame.append(df)
-    myDataFrame.sort_values(by = ['month'],ascending = False)=
+    myDataFrame.sort_values(by = ['month'],ascending = False)
     return myDataFrame
-bar = st.progress(0)
+
     
 df = load_data()
 town = df.groupby('town')
