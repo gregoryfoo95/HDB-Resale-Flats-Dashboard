@@ -1,4 +1,4 @@
-python -m pip install --upgrade pip
+
 streamlit==0.75.0
 import pandas as pd
 import base64
