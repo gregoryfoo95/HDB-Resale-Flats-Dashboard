@@ -4,7 +4,6 @@ import base64
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import yfinance as yf
 import urllib
 import csv
 from bs4 import BeautifulSoup
