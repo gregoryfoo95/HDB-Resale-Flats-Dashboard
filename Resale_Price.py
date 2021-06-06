@@ -12,6 +12,22 @@ from urllib.request import Request, urlopen
 from PIL import Image
 import time
 
+
+
+st.set_page_config(layout="wide")
+image = Image.open('house.png')
+st.image(image, width = 500)
+st.title('HDB Resale Flats Dashboard')
+
+st.markdown("""
+**This app retrieves data of HDB Resale Prices from data.gov.sg.**
+""")
+
+st.sidebar.header('User Input Features')
+
+# Web scraping of data.gov.sg data
+#
+@st.cache
 def load_data():
     myDataFrame = pd.DataFrame()
     #Live Extraction from data.gov.sg
@@ -33,22 +49,6 @@ def load_data():
     myDataFrame.sort_values(by = ['month'],ascending = False)
     return myDataFrame
 df = load_data()
-
-st.set_page_config(layout="wide")
-image = Image.open('house.png')
-st.image(image, width = 500)
-st.title('HDB Resale Flats Dashboard')
-
-st.markdown("""
-**This app retrieves data of HDB Resale Prices from data.gov.sg.**
-""")
-
-st.sidebar.header('User Input Features')
-
-# Web scraping of data.gov.sg data
-#
-@st.cache
-
 
     
 
