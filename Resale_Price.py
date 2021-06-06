@@ -54,7 +54,7 @@ df_selected_town = df[ (df['town'].isin(selected_town)) ]
 
 st.header('Display Resale Flats in Selected Town')
 st.write('Data Dimension: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
-st.dataframe(df)
+st.dataframe(df_selected_town)
 #st.header('Display Companies in Selected Sub-Industry')
 #st.write('Data Dimension: ' + str(df_selected_subsector.shape[0]) + ' rows and ' + str(df_selected_subsector.shape[1]) + ' columns.')
 #st.dataframe(df_selected_subsector)
