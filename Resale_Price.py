@@ -52,7 +52,7 @@ st.sidebar.header('User Input Features')
 
     
 
-town = df.groupby('town')
+#town = df.groupby('town')
 #subsector = df.groupby('GICS Sub-Industry')
 
 # Sidebar - Sector selection
