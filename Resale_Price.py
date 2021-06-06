@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import re
 from urllib.request import Request, urlopen
 
-st.title('HDB Resale Flat Dashboard')
+st.title('HDB Resale Flats Dashboard')
 
 st.markdown("""
 **This app retrieves data of HDB Resale Prices from data.gov.sg.**
@@ -57,8 +57,9 @@ selected_town = st.sidebar.multiselect('Town', sorted_town_unique, None) #Label,
 df_selected_town = df[ (df['town'].isin(selected_town)) ]
 #df_selected_subsector = df[ (df['GICS Sub-Industry'].isin(selected_subindustry)) ]
 
-st.header('Display Resale Flats in Selected Town')
-st.write('Data Dimension: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
+st.header('Display Resale Flats in Selected Towns')
+st.subheader('All filters are offed initially')
+st.write('Data Dimensions: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
 st.dataframe(df_selected_town)
 #st.header('Display Companies in Selected Sub-Industry')
 #st.write('Data Dimension: ' + str(df_selected_subsector.shape[0]) + ' rows and ' + str(df_selected_subsector.shape[1]) + ' columns.')
