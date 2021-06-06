@@ -103,7 +103,7 @@ def type_plot(town):
     y = df_selected_town['flat_type']
     x = df_selected_town['town']
     ax.bar(x,y)
-    return st.bar_chart(fig)
+    return st.pyplot(fig)
 # Plot Price of Resale Price
 def price_plot(town):
 #  df = pd.DataFrame(data[symbol].Close)
