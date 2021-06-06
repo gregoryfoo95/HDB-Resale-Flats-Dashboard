@@ -105,7 +105,7 @@ def type_plot(df_selected_town):
     ax.bar(x,y)
     return st.bar_chart(fig)
 # Plot Price of Resale Price
-def price_plot(df_selected_town):
+def price_plot(town):
 #  df = pd.DataFrame(data[symbol].Close)
 #  df['Date'] = df.index
   fig,ax = plt.subplots()
