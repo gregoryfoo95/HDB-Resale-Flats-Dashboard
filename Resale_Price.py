@@ -122,5 +122,5 @@ num_town = st.sidebar.slider('Number of Towns', 1, 10)
 
 #st.header('Stock Closing Price')
 for i in list(df_selected_town.town)[:num_town]:
-    price_plot(i)
+    type_plot(i)
 
