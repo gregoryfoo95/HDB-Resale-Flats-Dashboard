@@ -101,7 +101,7 @@ def type_plot(df_selected_town):
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
     y = df_selected_town['flat_type'].unique()
-    x = df_selected_town['town').unique()
+    x = df_selected_town['town'].unique()
     ax.bar(x,y)
     plt.show()
     return st.pyplot(fig)
