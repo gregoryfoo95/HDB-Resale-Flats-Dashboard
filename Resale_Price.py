@@ -101,7 +101,7 @@ def type_plot(town):
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
     x = df_selected_town['flat_type']
-    y = df_selected_town['flat_type'].count
+    y = df_selected_town['flat_type'].count()
     ax.bar(x,y)
     return st.pyplot(fig)
 # Plot Price of Resale Price
