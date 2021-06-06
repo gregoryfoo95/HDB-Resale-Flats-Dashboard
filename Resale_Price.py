@@ -51,7 +51,7 @@ st.sidebar.header('User Input Features')
 #df = load_data()
 
     
-df = pd.read_pickle("./dummy.pk1")
+df = store['df']
 town = df.groupby('town')
 #subsector = df.groupby('GICS Sub-Industry')
 
