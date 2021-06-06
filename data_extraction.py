@@ -33,4 +33,5 @@ def load_data():
     myDataFrame.sort_values(by = ['month'],ascending = False)
     return myDataFrame
 df = load_data()
-df = df.to_pickle("./dummy.pk1")
+store = pd.HDFStore('store.h5')
+store['df'] = df #save it
