@@ -56,24 +56,20 @@ town = df.groupby('town')
 
 # Sidebar - Sector selection
 sorted_town_unique = sorted( df['town'].unique() )
-#sorted_subsector_unique = sorted( df['GICS Sub-Industry'].unique() )
 selected_town = st.sidebar.multiselect('Town', sorted_town_unique, sorted_town_unique) #Label, Options, Default list of values = none
-#selected_subindustry = st.sidebar.multiselect('Sub-Industry', sorted_subsector_unique, sorted_subsector_unique)
+
 
 # Filtering data
 df_selected_town = df[ (df['town'].isin(selected_town)) ]
-#df_selected_subsector = df[ (df['GICS Sub-Industry'].isin(selected_subindustry)) ]
+
 
 st.header('Display Resale Flats in Selected Towns')
 st.write('All filters are offed initially')
 st.write('Data Dimensions: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
 st.dataframe(df_selected_town)
-#st.header('Display Companies in Selected Sub-Industry')
-#st.write('Data Dimension: ' + str(df_selected_subsector.shape[0]) + ' rows and ' + str(df_selected_subsector.shape[1]) + ' columns.')
-#st.dataframe(df_selected_subsector)
 
-# Download S&P500 data
-# https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
+
+
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
@@ -82,25 +78,8 @@ def filedownload(df):
 
 st.markdown(filedownload(df_selected_town), unsafe_allow_html=True)
 
-# https://pypi.org/project/yfinance/
-
-#data = yf.download(
-#        tickers = list(df_selected_sector[:10].Symbol),
-#        period = "ytd",
-#        interval = "1d",
-#        group_by = 'ticker',
-#        auto_adjust = True,
-#        prepost = True,
-#        threads = True,
-#        proxy = None
-#    )
 
 
-# Plot Number of flat types for estates
-def type_plot(town):
-    df_selected_town.plt.bar(x=df_selected_town["town"], y=df_selected_town["flat_type"], rot=70, title="Breakdown of Flat Type vs Town);
-
-plt.show(block=True);
 # Plot Price of Resale Price
 def price_plot(town):
 #  df = pd.DataFrame(data[symbol].Close)
@@ -119,5 +98,5 @@ num_town = st.sidebar.slider('Number of Towns', 1, 10)
 
 #st.header('Stock Closing Price')
 for i in list(df_selected_town.town)[:num_town]:
-    type_plot(i)
+    price_plot(i)
 
