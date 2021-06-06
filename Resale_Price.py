@@ -98,7 +98,7 @@ st.markdown(filedownload(df_selected_town), unsafe_allow_html=True)
 
 # Plot Number of flat types for estates
 def type_plot(town):
-    town.plt.bar(x="town", y="flat_type", rot=70, title="Number of tourist visits - Year 2018");
+    df_selected_town.plt.bar(x=df_selected_town["town"], y=df_selected_town["flat_type"], rot=70, title="Breakdown of Flat Type vs Town);
 
 plt.show(block=True);
 # Plot Price of Resale Price
