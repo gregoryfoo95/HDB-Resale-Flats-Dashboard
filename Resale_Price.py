@@ -103,7 +103,7 @@ def price_plot(town):
   plt.fill_between(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.3)
   plt.plot(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.8)
   plt.xticks(rotation=90)
-  ax.set_xticks(np.arange(0, len(df_selected_town.month), 5))
+  ax.set_xticks(np.arange(0, 20, 5))
   plt.title(town, fontweight='bold')
   plt.xlabel('Month', fontweight='bold')
   plt.ylabel('Price', fontweight='bold')
