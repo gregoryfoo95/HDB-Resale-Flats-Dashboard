@@ -56,7 +56,7 @@ town = df.groupby('town')
 # Sidebar - Sector selection
 sorted_town_unique = sorted( df['town'].unique() )
 #sorted_subsector_unique = sorted( df['GICS Sub-Industry'].unique() )
-selected_town = st.sidebar.multiselect('Town', sorted_town_unique, None) #Label, Options, Default list of values = none
+selected_town = st.sidebar.multiselect('Town', sorted_town_unique, sorted_town_unique) #Label, Options, Default list of values = none
 #selected_subindustry = st.sidebar.multiselect('Sub-Industry', sorted_subsector_unique, sorted_subsector_unique)
 
 # Filtering data
