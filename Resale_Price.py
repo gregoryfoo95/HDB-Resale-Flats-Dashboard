@@ -103,8 +103,7 @@ def type_plot(df_selected_town):
     y = df_selected_town['flat_type']
     x = df_selected_town['town']
     ax.bar(x,y)
-    plt.show()
-    return st.pyplot(fig)
+    return st.bar_chart(fig)
 # Plot Price of Resale Price
 def price_plot(df_selected_town):
 #  df = pd.DataFrame(data[symbol].Close)
@@ -113,7 +112,6 @@ def price_plot(df_selected_town):
   plt.fill_between(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.3)
   plt.plot(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.8)
   plt.xticks(rotation=90)
-  ax.set_xticks(np.arange(0, 20, 5))
   plt.title(town, fontweight='bold')
   plt.xlabel('Month', fontweight='bold')
   plt.ylabel('Price', fontweight='bold')
