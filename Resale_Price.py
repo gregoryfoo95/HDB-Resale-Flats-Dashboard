@@ -100,20 +100,18 @@ def price_plot(symbol):
 #  df = pd.DataFrame(data[symbol].Close)
 #  df['Date'] = df.index
   fig,ax = plt.subplots()
-  plt.fill_between(df.month, df.resale_price, color='skyblue', alpha=0.3)
-  plt.plot(df.month, df.resale_price, color='skyblue', alpha=0.8)
+  plt.fill_between(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.3)
+  plt.plot(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.8)
   plt.xticks(rotation=90)
   plt.title(symbol, fontweight='bold')
   plt.xlabel('Date', fontweight='bold')
   plt.ylabel('Price', fontweight='bold')
   return st.pyplot(fig)
 
-#num_company = st.sidebar.slider('Number of Companies', 1, 10)
+num_town = st.sidebar.slider('Number of Companies', 1, 10)
 
 
 #st.header('Stock Closing Price')
-#for i in list(df_selected_sector.Symbol)[:num_company]:
-#    price_plot(i)
-#    df1 = yf.Ticker(i)
-#    df2 = (df1.recommendations).sort_index(ascending=False)
-#    df2
+for i in list(df_selected_town.town)[:num_town]:
+    price_plot(i)
+
