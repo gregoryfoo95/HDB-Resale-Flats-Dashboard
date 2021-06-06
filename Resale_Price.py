@@ -51,7 +51,7 @@ st.sidebar.header('User Input Features')
 #df = load_data()
 
     
-from data_extraction.py import df
+from data_extraction.py import *
 town = df.groupby('town')
 #subsector = df.groupby('GICS Sub-Industry')
 
