@@ -11,7 +11,7 @@ import re
 from urllib.request import Request, urlopen
 
 st.set_page_config(layout="wide")
-image = Image.open('House.png')
+image = Image.open('house.png')
 st.image(image, width = 500)
 st.title('HDB Resale Flats Dashboard')
 
