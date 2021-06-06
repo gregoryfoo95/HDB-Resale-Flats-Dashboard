@@ -11,7 +11,7 @@ import re
 from urllib.request import Request, urlopen
 from PIL import Image
 import time
-from data_extraction import df
+
 
 
 st.set_page_config(layout="wide")
@@ -51,8 +51,8 @@ st.sidebar.header('User Input Features')
 #df = load_data()
 
     
-
-#town = df.groupby('town')
+df = pd.read_pickle("./dummy.pk1")
+town = df.groupby('town')
 #subsector = df.groupby('GICS Sub-Industry')
 
 # Sidebar - Sector selection
