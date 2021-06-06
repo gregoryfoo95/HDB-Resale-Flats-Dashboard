@@ -96,15 +96,16 @@ st.markdown(filedownload(df_selected_town), unsafe_allow_html=True)
 #    )
 
 # Plot Price of Resale Price
-def price_plot(symbol):
+def price_plot(town):
 #  df = pd.DataFrame(data[symbol].Close)
 #  df['Date'] = df.index
   fig,ax = plt.subplots()
   plt.fill_between(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.3)
   plt.plot(df_selected_town.month, df_selected_town.resale_price, color='skyblue', alpha=0.8)
   plt.xticks(rotation=90)
-  plt.title(symbol, fontweight='bold')
-  plt.xlabel('Date', fontweight='bold')
+  ax.set_xticks(np.arange(0, len(num_town, 5))
+  plt.title(town, fontweight='bold')
+  plt.xlabel('Month', fontweight='bold')
   plt.ylabel('Price', fontweight='bold')
   return st.pyplot(fig)
 
