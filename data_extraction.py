@@ -1,3 +1,17 @@
+import streamlit as st
+import pandas as pd
+import base64
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import urllib
+import csv
+from bs4 import BeautifulSoup
+import re
+from urllib.request import Request, urlopen
+from PIL import Image
+import time
+
 def load_data():
     myDataFrame = pd.DataFrame()
     #Live Extraction from data.gov.sg
