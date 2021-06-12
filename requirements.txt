@@ -6,3 +6,4 @@ seaborn
 numpy
 bs4
 plotly==4.14.3
+plotly_express
