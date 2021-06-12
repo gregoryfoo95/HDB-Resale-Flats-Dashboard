@@ -11,7 +11,7 @@ import re
 from urllib.request import Request, urlopen
 from PIL import Image
 import time
-import plotly as pp
+import plotly.express as pp
 #---------------------------------#
 # Page layout
 ## Page expands to full width
@@ -79,7 +79,7 @@ st.write('Data Dimension: ' + str(df_avgpriceoftown.shape[0]) + ' rows and ' + s
 st.dataframe(df_avgpriceoftown)
 st.bar_chart(df_avgpriceoftown.RP_mean)
 
-fig = pp.express.bar(df_avgpriceoftown, x = df_avgpriceoftown.index, y =df_avgpriceoftown.RP_mean, color_discrete_sequence =['MediumSpringGreen']*len(df_avgpriceoftown))
+fig = pp.bar(df_avgpriceoftown, x = df_avgpriceoftown.index, y =df_avgpriceoftown.RP_mean, color_discrete_sequence =['MediumSpringGreen']*len(df_avgpriceoftown))
 fig.update_xaxes(tickangle = -45)
 st.plotly_chart(fig,use_container_width = True)
 
