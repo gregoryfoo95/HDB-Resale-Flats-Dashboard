@@ -77,7 +77,6 @@ df_avgpriceoftown.columns = ['RP_mean','RP_min','RP_max']
 st.header('Average, Min and Max Prices among Towns across Year 2017-2021')
 st.write('Data Dimension: ' + str(df_avgpriceoftown.shape[0]) + ' rows and ' + str(df_avgpriceoftown.shape[1]) + ' columns.')
 st.dataframe(df_avgpriceoftown)
-st.bar_chart(df_avgpriceoftown.RP_mean)
 
 fig = pp.bar(df_avgpriceoftown, x = df_avgpriceoftown.index, y =df_avgpriceoftown.RP_mean, color_discrete_sequence =['MediumSpringGreen']*len(df_avgpriceoftown))
 fig.update_xaxes(tickangle = -45)
