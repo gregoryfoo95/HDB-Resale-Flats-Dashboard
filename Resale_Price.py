@@ -9,9 +9,10 @@ import csv
 from bs4 import BeautifulSoup
 import re
 from urllib.request import Request, urlopen
+import dask.dataframe as dd
 from PIL import Image
 import time
-
+import plotly as pp
 #---------------------------------#
 # Page layout
 ## Page expands to full width
@@ -51,10 +52,10 @@ def load_data():
     return myDataFrame
 
 myDataFrame = load_data()
-town = myDataFrame.groupby('town')
-#subsector = df.groupby('GICS Sub-Industry')
+town = myDataFrame.groupby(['town','flat_type'])
 
 # Sidebar - Sector selection
+### Filtering Table for User to get a tabular visualization of the data filters ###
 #Filter by Town
 sorted_town_unique = sorted( myDataFrame['town'].unique() )
 selected_town = st.sidebar.multiselect('Town', sorted_town_unique,sorted_town_unique[0])
@@ -63,15 +64,25 @@ df_selected_town = myDataFrame[ (myDataFrame['town'].isin(selected_town)) ] #fil
 sorted_flattype_unique = sorted( df_selected_town['flat_type'].unique() )
 selected_flattype = st.sidebar.multiselect('Flat Type', sorted_flattype_unique,sorted_flattype_unique)
 df_town_flattype = df_selected_town[ (df_selected_town['flat_type'].isin(selected_flattype)) ] #filtering data
+#Filter by year
+sorted_year_unique = sorted(myDataFrame['month'].str[:4].unique())
+selected_year = st.sidebar.multiselect('Year',sorted_year_unique,sorted_year_unique)
+df3 = df_town_flattype[ (df_town_flattype['month'].str[:4].isin(selected_year))]
+st.header('Tabular View of HDB Resale Flat Filtered Data')
+st.dataframe(df3)
 
-df_avgpriceoftown = myDataFrame.groupby('town').mean()
-
-st.header('Average Prices among Towns')
+#Average Price across 2017-2021
+df_avgpriceoftown = myDataFrame.groupby(['town']).agg({'resale_price':['mean','min','max']})
+df_avgpriceoftown.columns = ['RP_mean','RP_min','RP_max']
+#Showing Avg, max and min prices
+st.header('Average, Min and Max Prices among Towns across Year 2017-2021')
 st.write('Data Dimension: ' + str(df_avgpriceoftown.shape[0]) + ' rows and ' + str(df_avgpriceoftown.shape[1]) + ' columns.')
 st.dataframe(df_avgpriceoftown)
-fig,ax = plt.subplots()
-st.bar_chart(df_avgpriceoftown.resale_price)
+st.bar_chart(df_avgpriceoftown.RP_mean)
 
+fig = pp.express.bar(df_avgpriceoftown, x = df_avgpriceoftown.index, y =df_avgpriceoftown.RP_mean, color_discrete_sequence =['MediumSpringGreen']*len(df_avgpriceoftown))
+fig.update_xaxes(tickangle = -45)
+st.plotly_chart(fig,use_container_width = True)
 
 st.header('Display Resale Flats in Selected Town')
 st.write('Data Dimension: ' + str(df_selected_town.shape[0]) + ' rows and ' + str(df_selected_town.shape[1]) + ' columns.')
@@ -85,7 +96,7 @@ def filedownload(df):
     href = f'<a href="data:file/csv;base64,{b64}" download="Resale_prices.csv">Download CSV File</a>'
     return href
 
-st.markdown(filedownload(df_town_flattype), unsafe_allow_html=True)
+#st.markdown(filedownload(df_town_flattype), unsafe_allow_html=True)
 
 num_town = st.sidebar.slider('Number of Towns', 1, 10)
 
